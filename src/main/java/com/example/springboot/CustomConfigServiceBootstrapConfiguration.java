@@ -21,7 +21,7 @@ public class CustomConfigServiceBootstrapConfiguration {
 
     static {
         Properties prop = new Properties();
-        InputStream in = AccessTokenManager.class.getResourceAsStream("/application.properties");
+        InputStream in = CustomConfigServiceBootstrapConfiguration.class.getResourceAsStream("/application.properties");
         try {
             prop.load(in);
             configServerEndpoint = prop.getProperty("spring.cloud.config.uri");
@@ -62,6 +62,7 @@ public class CustomConfigServiceBootstrapConfiguration {
         }
 
     }
+
     private RestTemplate customRestTemplate() {
         /*
          * Inject your custom rest template
